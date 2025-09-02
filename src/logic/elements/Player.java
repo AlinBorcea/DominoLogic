@@ -1,4 +1,6 @@
-package logic;
+package logic.elements;
+
+import logic.strategies.SetTileStrategy;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package logic;
+package logic.elements;
 
 public class Tile {
     private int valueA;
