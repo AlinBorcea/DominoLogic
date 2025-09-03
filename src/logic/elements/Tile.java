@@ -1,21 +1,6 @@
 package logic.elements;
 
-public class Tile {
-    private int valueA;
-    private int valueB;
-
-    public Tile(int valueA, int valueB) {
-        this.valueA = valueA;
-        this.valueB = valueB;
-    }
-
-    public int getValueA() {
-        return valueA;
-    }
-
-    public int getValueB() {
-        return valueB;
-    }
+public record Tile(int valueA, int valueB) {
 
     public Tile reversed() {
         return new Tile(valueB, valueA);
