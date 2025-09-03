@@ -1,6 +1,5 @@
 package logic;
 
-import logic.elements.Player;
 import logic.elements.Table;
 import logic.strategies.SetTileStrategy;
 
