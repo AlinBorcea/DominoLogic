@@ -2,18 +2,13 @@ package logic.elements;
 
 import logic.strategies.SetTileStrategy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    private final List<Tile> tiles;
+    private List<Tile> tiles;
     private String name;
     private int score;
-
-    public Player(List<Tile> tiles) {
-        this.tiles = tiles;
-        name = "Nameless";
-        score = 0;
-    }
 
     public Player(List<Tile> tiles, String name) {
         this.tiles = tiles;
