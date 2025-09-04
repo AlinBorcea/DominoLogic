@@ -19,7 +19,7 @@ public class Main {
         }
 
         try {
-            dominoLogic.runOneTurn();
+            dominoLogic.runMultipleTurns(10);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
