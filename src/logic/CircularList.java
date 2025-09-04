@@ -11,12 +11,16 @@ public class CircularList<T> {
         this.index = index;
     }
 
-    public T getNext() {
+    public T next() {
         index = index + 1 >= elements.size() ? 0 : index + 1;
         return elements.get(index);
     }
 
     public T getCurrent() {
         return elements.get(index);
+    }
+
+    public int count() {
+        return elements.size();
     }
 }
