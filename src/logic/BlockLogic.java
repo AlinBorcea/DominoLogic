@@ -19,6 +19,7 @@ public class BlockLogic implements DominoLogic {
         try {
             gameData.runTurn();
             failedTurns = 0;
+            gameData.goToNextPlayer();
         } catch (Exception e) {
             gameData.goToNextPlayer();
             failedTurns++;
