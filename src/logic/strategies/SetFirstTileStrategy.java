@@ -12,6 +12,7 @@ public class SetFirstTileStrategy implements SetTileStrategy {
 
         if (tableTiles.isEmpty()) {
             tableTiles.add(playerTiles.getFirst());
+            playerTiles.removeFirst();
             return;
         }
 
@@ -30,11 +31,11 @@ public class SetFirstTileStrategy implements SetTileStrategy {
                 break;
             } else if (reversed.matchesToLeftOfOther(firstOnTable)) {
                 tableTiles.addFirst(reversed);
-                playerTiles.remove(reversed);
+                playerTiles.remove(tile);
                 break;
             } else if (reversed.matchesToRightOfOther(lastOnTable)) {
                 tableTiles.addLast(reversed);
-                playerTiles.remove(reversed);
+                playerTiles.remove(tile);
                 break;
             }
         }
