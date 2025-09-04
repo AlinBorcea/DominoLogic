@@ -7,8 +7,13 @@ import java.util.List;
 public class SetFirstTileStrategy implements SetTileStrategy {
     @Override
     public void setTile(List<Tile> tableTiles, List<Tile> playerTiles) throws Exception {
-        if (tableTiles.isEmpty() || playerTiles.isEmpty())
-            throw new Exception("SetFirstTileStrategy: there are no tiles to match");
+        if (playerTiles.isEmpty())
+            throw new Exception("SetFirstTileStrategy: player has no tiles");
+
+        if (tableTiles.isEmpty()) {
+            tableTiles.add(playerTiles.getFirst());
+            return;
+        }
 
         var firstOnTable = tableTiles.getFirst();
         var lastOnTable = tableTiles.getLast();
