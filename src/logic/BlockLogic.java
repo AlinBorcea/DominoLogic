@@ -28,12 +28,4 @@ public class BlockLogic implements DominoLogic {
             }
         }
     }
-
-    @Override
-    public void runMultipleTurns(int numberOfTurns) throws Exception {
-        while (numberOfTurns > 0) {
-            runOneTurn();
-            numberOfTurns--;
-        }
-    }
 }

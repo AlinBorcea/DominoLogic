@@ -2,5 +2,10 @@ package logic;
 
 public interface DominoLogic {
     void runOneTurn() throws Exception;
-    void runMultipleTurns(int numberOfTurns) throws Exception;
+    default void runMultipleTurns(int numberOfTurns) throws Exception {
+        while (numberOfTurns > 0) {
+            runOneTurn();
+            numberOfTurns--;
+        }
+    }
 }

@@ -7,6 +7,7 @@ import java.util.List;
 
 public class DrawLogic implements DominoLogic {
     private final GameData gameData;
+    private int failedTurns = 0;
 
     public DrawLogic(List<String> playerNames, SetTileStrategy setTileStrategy, Table table) throws Exception {
         this.gameData = new GameData(playerNames, setTileStrategy, table);
@@ -14,11 +15,16 @@ public class DrawLogic implements DominoLogic {
 
     @Override
     public void runOneTurn() throws Exception {
-
-    }
-
-    @Override
-    public void runMultipleTurns(int numberOfTurns) throws Exception {
-
+        try {
+            gameData.runTurn();
+            failedTurns = 0;
+            gameData.goToNextPlayer();
+        } catch (Exception e) {
+            gameData.goToNextPlayer();
+            failedTurns++;
+            if (failedTurns == gameData.playerCount()) {
+                throw new Exception("All player have failed to place pips");
+            }
+        }
     }
 }
