@@ -1,16 +1,19 @@
 package logic;
 
 import logic.elements.*;
+import logic.strategies.SetTileStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameData {
+    private final SetTileStrategy setTileStrategy;
     private Boneyard boneyard;
     private final CircularList<Player> players;
     private final Table table;
 
-    public GameData(List<String> playerNames, Table table) throws Exception {
+    public GameData(List<String> playerNames, SetTileStrategy setTileStrategy, Table table) throws Exception {
+        this.setTileStrategy = setTileStrategy;
         this.table = table;
         boneyard = new Boneyard();
 
