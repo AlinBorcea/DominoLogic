@@ -17,5 +17,13 @@ public class Main {
         } finally {
             System.out.println(dominoLogic);
         }
+
+        try {
+            dominoLogic.runOneTurn();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println(dominoLogic);
+        }
     }
 }
