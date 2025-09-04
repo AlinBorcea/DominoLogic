@@ -24,20 +24,22 @@ public class SetFirstTileStrategy implements SetTileStrategy {
             if (tile.matchesToLeftOfOther(firstOnTable)) {
                 tableTiles.addFirst(tile);
                 playerTiles.remove(tile);
-                break;
+                return;
             } else if (tile.matchesToRightOfOther(lastOnTable)) {
                 tableTiles.addLast(tile);
                 playerTiles.remove(tile);
-                break;
+                return;
             } else if (reversed.matchesToLeftOfOther(firstOnTable)) {
                 tableTiles.addFirst(reversed);
                 playerTiles.remove(tile);
-                break;
+                return;
             } else if (reversed.matchesToRightOfOther(lastOnTable)) {
                 tableTiles.addLast(reversed);
                 playerTiles.remove(tile);
-                break;
+                return;
             }
         }
+
+        throw new Exception("Player cannot make a move");
     }
 }
