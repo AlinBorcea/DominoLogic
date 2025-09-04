@@ -25,4 +25,17 @@ public class GameData {
 
         players = new CircularList<>(playerList, 0);
     }
+
+    public void runTurn() throws Exception {
+        players.getCurrent().setOneTileOnTableUsingStrategy(table, setTileStrategy);
+    }
+
+    public void goToNextPlayer() {
+        players.next();
+    }
+
+    public int playerCount() {
+        return players.count();
+    }
+
 }
