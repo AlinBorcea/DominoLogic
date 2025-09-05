@@ -20,6 +20,10 @@ public class CircularList<T> {
         return elements.get(index);
     }
 
+    public List<T> getList() {
+        return elements;
+    }
+
     public int count() {
         return elements.size();
     }

@@ -14,4 +14,7 @@ public record Tile(int valueA, int valueB) {
         return valueA == other.valueB;
     }
 
+    public int sum() {
+        return valueA + valueB;
+    }
 }

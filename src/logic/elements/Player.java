@@ -2,8 +2,8 @@ package logic.elements;
 
 import logic.strategies.SetTileStrategy;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Player {
     private List<Tile> tiles;
@@ -26,5 +26,18 @@ public class Player {
 
     public boolean hasNoTiles() {
         return tiles.isEmpty();
+    }
+
+    public void addScore(int score) {
+        this.score += score;
+    }
+
+    public int getValueOfTiles() {
+        int sum = 0;
+        for (var tile : tiles) {
+            sum += tile.sum();
+        }
+
+        return sum;
     }
 }
