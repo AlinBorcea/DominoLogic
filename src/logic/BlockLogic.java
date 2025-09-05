@@ -12,8 +12,8 @@ public class BlockLogic implements DominoLogic {
     private final GameData gameData;
     private int failedTurns = 0;
 
-    public BlockLogic(List<String> playerNames, SetTileStrategy setTileStrategy, Table table) throws Exception {
-        this.gameData = new GameData(playerNames, setTileStrategy, table);
+    public BlockLogic(List<String> playerNames, SetTileStrategy setTileStrategy) throws Exception {
+        this.gameData = new GameData(playerNames, setTileStrategy, new Table());
     }
 
     @Override

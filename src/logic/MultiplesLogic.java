@@ -10,8 +10,8 @@ public class MultiplesLogic implements DominoLogic {
     private final int multiple;
     private int failedTurns = 0;
 
-    public MultiplesLogic(List<String> playerNames, SetTileStrategy setTileStrategy, Table table, int multiple) throws Exception {
-        this.gameData = new GameData(playerNames, setTileStrategy, table);
+    public MultiplesLogic(List<String> playerNames, SetTileStrategy setTileStrategy, int multiple) throws Exception {
+        this.gameData = new GameData(playerNames, setTileStrategy, new Table());
         this.multiple = multiple;
     }
 

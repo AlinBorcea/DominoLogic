@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            dominoLogic = new DrawLogic(Arrays.asList("P1", "P2"), new SetFirstTileStrategy(), new Table());
+            dominoLogic = new DrawLogic(Arrays.asList("P1", "P2"), new SetFirstTileStrategy());
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(1);
