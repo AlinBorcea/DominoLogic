@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            dominoLogic = new DrawLogic(Arrays.asList("P1", "P2"), new SetFirstTileStrategy());
+            dominoLogic = new BlockLogic(Arrays.asList("P1", "P2"), new SetFirstTileStrategy());
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(1);
@@ -24,6 +24,7 @@ public class Main {
             dominoLogic.runMultipleTurns(40);
         } catch (GameOverException e) {
             System.out.println("Game over!");
+            dominoLogic.calculateEndGameScore();
 
         } catch (Exception e) {
             e.printStackTrace();
