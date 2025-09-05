@@ -1,6 +1,7 @@
 package logic;
 
 import logic.elements.*;
+import logic.exceptions.GameOverException;
 import logic.exceptions.PlayerCannotMakeAMoveException;
 import logic.strategies.SetTileStrategy;
 
@@ -29,9 +30,10 @@ public class GameData {
 
     public void runTurn() throws Exception {
         players.getCurrent().setOneTileOnTableUsingStrategy(table, setTileStrategy);
+        if (players.getCurrent().hasNoTiles()) throw new GameOverException("Player has set all of their tiles");
     }
 
-    public void supplyCurrentPlayerWithTilesUntilValidOrEmpty() throws Exception {
+    public void giveCurrentPlayerTilesUntilValidOrEmpty() throws Exception {
         var player = players.getCurrent();
         Tile tile;
 
