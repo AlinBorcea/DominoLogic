@@ -24,4 +24,7 @@ public class Player {
         tiles.add(tile);
     }
 
+    public boolean hasNoTiles() {
+        return tiles.isEmpty();
+    }
 }
