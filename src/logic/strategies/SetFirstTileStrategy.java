@@ -1,6 +1,8 @@
 package logic.strategies;
 
 import logic.elements.Tile;
+import logic.exceptions.PlayerCannotMakeAMoveException;
+import logic.exceptions.PlayerHasNoTilesException;
 
 import java.util.List;
 
@@ -8,7 +10,7 @@ public class SetFirstTileStrategy implements SetTileStrategy {
     @Override
     public void setTile(List<Tile> tableTiles, List<Tile> playerTiles) throws Exception {
         if (playerTiles.isEmpty())
-            throw new Exception("SetFirstTileStrategy: player has no tiles");
+            throw new PlayerHasNoTilesException("SetFirstTileStrategy: player has no tiles");
 
         if (tableTiles.isEmpty()) {
             tableTiles.add(playerTiles.getFirst());
@@ -40,6 +42,6 @@ public class SetFirstTileStrategy implements SetTileStrategy {
             }
         }
 
-        throw new Exception("Player cannot make a move");
+        throw new PlayerCannotMakeAMoveException("Player cannot make a move");
     }
 }

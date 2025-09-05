@@ -1,6 +1,7 @@
 package logic;
 
 import logic.elements.*;
+import logic.exceptions.PlayerCannotMakeAMoveException;
 import logic.strategies.SetTileStrategy;
 
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class GameData {
 
         } while (!table.tileCanBeSet(tile));
 
-        if (boneyard.isEmpty() && !table.tileCanBeSet(tile)) throw new Exception("No tile could be supplied");
+        if (boneyard.isEmpty() && !table.tileCanBeSet(tile)) throw new PlayerCannotMakeAMoveException("No tile could be supplied");
     }
 
     public void goToNextPlayer() {

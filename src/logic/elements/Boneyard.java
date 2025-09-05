@@ -1,5 +1,7 @@
 package logic.elements;
 
+import logic.exceptions.BoneyardIsEmptyException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,8 +27,8 @@ public class Boneyard {
         return tiles.isEmpty();
     }
 
-    public Tile takeOneTile() throws Exception {
-        if (tiles.isEmpty()) throw new Exception("Boneyard: there are no more tiles to take");
+    public Tile takeOneTile() throws BoneyardIsEmptyException {
+        if (tiles.isEmpty()) throw new BoneyardIsEmptyException("Boneyard: there are no more tiles to take");
         var randomIndex = random.nextInt() % tiles.size();
         randomIndex = randomIndex < 0 ? randomIndex*(-1) : randomIndex;
 
