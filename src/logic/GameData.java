@@ -46,6 +46,25 @@ public class GameData {
         if (boneyard.isEmpty() && !table.tileCanBeSet(tile)) throw new PlayerCannotMakeAMoveException("No tile could be supplied");
     }
 
+    public void calculateEndGameScore() {
+        Player minPlayer = new Player(null, ""), maxPlayer;
+        int minSum = 10000, maxSum = 0;
+
+        for (var player : players.getList()) {
+            var valueOfTiles = player.getValueOfTiles();
+            if (valueOfTiles < minSum) {
+                minPlayer = player;
+                minSum = valueOfTiles;
+            }
+            if (valueOfTiles > maxSum) {
+                maxPlayer = player;
+                maxSum = valueOfTiles;
+            }
+        }
+
+        minPlayer.addScore(maxSum);
+    }
+
     public void goToNextPlayer() {
         players.next();
     }
@@ -53,5 +72,4 @@ public class GameData {
     public int playerCount() {
         return players.count();
     }
-
 }
