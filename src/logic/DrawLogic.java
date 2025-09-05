@@ -1,6 +1,10 @@
 package logic;
 
 import logic.elements.Table;
+import logic.exceptions.BoneyardIsEmptyException;
+import logic.exceptions.GameOverException;
+import logic.exceptions.PlayerCannotMakeAMoveException;
+import logic.exceptions.PlayerHasNoTilesException;
 import logic.strategies.SetTileStrategy;
 
 import java.util.List;
@@ -19,12 +23,23 @@ public class DrawLogic implements DominoLogic {
             gameData.runTurn();
             failedTurns = 0;
             gameData.goToNextPlayer();
-        } catch (Exception e) {
-            gameData.goToNextPlayer();
-            failedTurns++;
-            if (failedTurns == gameData.playerCount()) {
-                throw new Exception("All player have failed to place pips");
+
+        }  catch (PlayerCannotMakeAMoveException e) {
+            try {
+                giveTilesToCurrentPlayerAndRerunTurn();
+            } catch (BoneyardIsEmptyException be) {
+                failedTurns++;
+                if (failedTurns == gameData.playerCount()) throw new GameOverException("Neither player could make finish a turn");
+                gameData.goToNextPlayer();
             }
+
+        } catch (PlayerHasNoTilesException e) {
+            throw new GameOverException("Game Over! player is out of tiles");
         }
+    }
+
+    private void giveTilesToCurrentPlayerAndRerunTurn() throws Exception {
+        gameData.giveCurrentPlayerTilesUntilValidOrEmpty();
+        this.runOneTurn();
     }
 }
