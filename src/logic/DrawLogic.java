@@ -38,6 +38,11 @@ public class DrawLogic implements DominoLogic {
         }
     }
 
+    @Override
+    public void calculateEndGameScore() {
+        gameData.calculateEndGameScore();
+    }
+
     private void giveTilesToCurrentPlayerAndRerunTurn() throws Exception {
         gameData.giveCurrentPlayerTilesUntilValidOrEmpty();
         this.runOneTurn();

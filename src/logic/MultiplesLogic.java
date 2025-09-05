@@ -29,4 +29,9 @@ public class MultiplesLogic implements DominoLogic {
             }
         }
     }
+
+    @Override
+    public void calculateEndGameScore() {
+        gameData.calculateEndGameScore();
+    }
 }

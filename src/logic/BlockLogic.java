@@ -34,4 +34,9 @@ public class BlockLogic implements DominoLogic {
             throw new GameOverException("Game Over! player is out of tiles");
         }
     }
+
+    @Override
+    public void calculateEndGameScore() {
+        gameData.calculateEndGameScore();
+    }
 }
