@@ -21,6 +21,10 @@ public class Boneyard {
         ));
     }
 
+    public boolean isEmpty() {
+        return tiles.isEmpty();
+    }
+
     public Tile takeOneTile() throws Exception {
         if (tiles.isEmpty()) throw new Exception("Boneyard: there are no more tiles to take");
         var randomIndex = random.nextInt() % tiles.size();

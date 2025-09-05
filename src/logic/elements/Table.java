@@ -13,4 +13,15 @@ public class Table {
     public List<Tile> getTiles() {
         return tiles;
     }
+
+    public boolean tileCanBeSet(Tile tile) {
+        if (tiles.isEmpty()) return true;
+
+        var left = tiles.getFirst();
+        var right = tiles.getLast();
+        var reversed = tile.reversed();
+
+        return tile.matchesToLeftOfOther(left) || tile.matchesToRightOfOther(right) ||
+                reversed.matchesToLeftOfOther(left) || reversed.matchesToRightOfOther(right);
+    }
 }

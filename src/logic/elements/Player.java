@@ -20,4 +20,8 @@ public class Player {
         strategy.setTile(table.getTiles(), tiles);
     }
 
+    public void addTile(Tile tile) {
+        tiles.add(tile);
+    }
+
 }

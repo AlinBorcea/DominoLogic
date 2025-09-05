@@ -30,6 +30,19 @@ public class GameData {
         players.getCurrent().setOneTileOnTableUsingStrategy(table, setTileStrategy);
     }
 
+    public void supplyCurrentPlayerWithTilesUntilValidOrEmpty() throws Exception {
+        var player = players.getCurrent();
+        Tile tile;
+
+        do {
+            tile = boneyard.takeOneTile();
+            player.addTile(tile);
+
+        } while (!table.tileCanBeSet(tile));
+
+        if (boneyard.isEmpty() && !table.tileCanBeSet(tile)) throw new Exception("No tile could be supplied");
+    }
+
     public void goToNextPlayer() {
         players.next();
     }
