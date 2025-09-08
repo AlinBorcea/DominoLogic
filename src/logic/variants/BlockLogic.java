@@ -37,6 +37,11 @@ public class BlockLogic implements DominoLogic {
     }
 
     @Override
+    public void resetTurn() {
+        gameData.resetTurn();
+    }
+
+    @Override
     public void calculateEndGameScore() {
         gameData.calculateEndGameScore();
     }

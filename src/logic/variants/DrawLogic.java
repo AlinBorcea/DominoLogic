@@ -40,6 +40,11 @@ public class DrawLogic implements DominoLogic {
     }
 
     @Override
+    public void resetTurn() {
+        gameData.resetTurn();
+    }
+
+    @Override
     public void calculateEndGameScore() {
         gameData.calculateEndGameScore();
     }

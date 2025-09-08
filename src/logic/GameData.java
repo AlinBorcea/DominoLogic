@@ -10,9 +10,9 @@ import java.util.List;
 
 public class GameData {
     private final SetTileStrategy setTileStrategy;
-    private Boneyard boneyard;
     private final CircularList<Player> players;
-    private final Table table;
+    private Boneyard boneyard;
+    private Table table;
 
     public GameData(List<String> playerNames, SetTileStrategy setTileStrategy, Table table) throws Exception {
         this.setTileStrategy = setTileStrategy;
@@ -70,6 +70,14 @@ public class GameData {
 
         if (tableScore % multiple == 0) {
             players.getCurrent().addScore(tableScore);
+        }
+    }
+
+    public void resetTurn() {
+        boneyard = new Boneyard();
+        table = new Table();
+        for (var player : players.getList()) {
+            player.emptyTiles();
         }
     }
 

@@ -2,6 +2,7 @@ package logic.elements;
 
 import logic.strategies.SetTileStrategy;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -30,6 +31,10 @@ public class Player {
 
     public void addScore(int score) {
         this.score += score;
+    }
+
+    public void emptyTiles() {
+        tiles = new ArrayList<>();
     }
 
     public int getValueOfTiles() {
