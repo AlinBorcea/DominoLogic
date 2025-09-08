@@ -1,4 +1,4 @@
-package logic;
+package logic.variants;
 
 public interface DominoLogic {
     void runOneTurn() throws Exception;

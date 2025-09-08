@@ -1,5 +1,6 @@
-package logic;
+package logic.variants;
 
+import logic.GameData;
 import logic.elements.Table;
 import logic.exceptions.BoneyardIsEmptyException;
 import logic.exceptions.GameOverException;

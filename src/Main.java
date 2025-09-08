@@ -1,7 +1,5 @@
-import logic.BlockLogic;
-import logic.DominoLogic;
-import logic.DrawLogic;
-import logic.elements.Table;
+import logic.variants.BlockLogic;
+import logic.variants.DominoLogic;
 import logic.exceptions.GameOverException;
 import logic.strategies.SetFirstTileStrategy;
 
