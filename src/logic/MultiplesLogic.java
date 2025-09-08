@@ -20,6 +20,7 @@ public class MultiplesLogic implements DominoLogic {
         try {
             gameData.runTurn();
             failedTurns = 0;
+            gameData.updateCurrentPlayerScoreUsingTableAndMultiple(this.multiple);
             gameData.goToNextPlayer();
         } catch (Exception e) {
             gameData.goToNextPlayer();

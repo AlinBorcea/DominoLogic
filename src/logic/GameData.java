@@ -65,6 +65,14 @@ public class GameData {
         minPlayer.addScore(maxSum);
     }
 
+    public void updateCurrentPlayerScoreUsingTableAndMultiple(int multiple) {
+        int tableScore = table.getTableScore();
+
+        if (tableScore % multiple == 0) {
+            players.getCurrent().addScore(tableScore);
+        }
+    }
+
     public void goToNextPlayer() {
         players.next();
     }

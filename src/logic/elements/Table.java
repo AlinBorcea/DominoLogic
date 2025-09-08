@@ -24,4 +24,8 @@ public class Table {
         return tile.matchesToLeftOfOther(left) || tile.matchesToRightOfOther(right) ||
                 reversed.matchesToLeftOfOther(left) || reversed.matchesToRightOfOther(right);
     }
+
+    public int getTableScore() {
+        return tiles.isEmpty() ? -1 : tiles.getFirst().valueA() + tiles.getLast().valueB();
+    }
 }
