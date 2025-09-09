@@ -8,6 +8,8 @@ import logic.strategies.SetTileStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
+/// GameData stores all the common elements for any domino game (elements package) and provides all the functionality
+/// for any game variant.
 public class GameData {
     private final SetTileStrategy setTileStrategy;
     private final CircularList<Player> players;
@@ -73,6 +75,7 @@ public class GameData {
         }
     }
 
+    /// Resets every element to its initial state except for the score of each player.
     public void resetTurn() {
         boneyard = new Boneyard();
         table = new Table();

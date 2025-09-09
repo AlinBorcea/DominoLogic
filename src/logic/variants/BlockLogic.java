@@ -9,6 +9,8 @@ import logic.strategies.SetTileStrategy;
 
 import java.util.List;
 
+/// BlockLogic is the simplest implementation of a domino game where players cannot draw additional tiles.
+/// The game ends when one player has set all their tiles or when no player can make a move.
 public class BlockLogic implements DominoLogic {
     private final GameData gameData;
     private int failedTurns = 0;
@@ -17,6 +19,7 @@ public class BlockLogic implements DominoLogic {
         this.gameData = new GameData(playerNames, setTileStrategy, new Table());
     }
 
+    /// Runs one turn automatically and throws a GameOverException when the game is over.
     @Override
     public void runOneTurn() throws Exception {
         try {

@@ -6,6 +6,8 @@ import logic.strategies.SetTileStrategy;
 
 import java.util.List;
 
+/// MultiplesLogic further adds the ability to score points by setting tiles on the table
+/// and making the sum of the open ends be a multiple of, normally, three or five.
 public class MultiplesLogic implements DominoLogic {
     private final GameData gameData;
     private final int multiple;

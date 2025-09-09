@@ -1,5 +1,6 @@
 package logic.variants;
 
+/// DominoLogic defines the behavior of each game variant.
 public interface DominoLogic {
     void calculateEndGameScore();
     void resetTurn();

@@ -10,6 +10,8 @@ import logic.strategies.SetTileStrategy;
 
 import java.util.List;
 
+/// DrawLogic adds the ability to draw tiles from the boneyard when the current player cannot make a move.
+/// The game ends when one player has set all their tiles or when no player can make a move despite drawing tiles.
 public class DrawLogic implements DominoLogic {
     private final GameData gameData;
     private int failedTurns = 0;

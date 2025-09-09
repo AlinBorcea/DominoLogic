@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/// Player stores the tiles, name and score of a player.
 public class Player {
     private List<Tile> tiles;
     private String name;

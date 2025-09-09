@@ -6,6 +6,7 @@ import logic.exceptions.PlayerHasNoTilesException;
 
 import java.util.List;
 
+/// SetFirstTileStrategy implements SetTileStrategy and sets the first valid tile on the table.
 public class SetFirstTileStrategy implements SetTileStrategy {
     @Override
     public void setTile(List<Tile> tableTiles, List<Tile> playerTiles) throws Exception {

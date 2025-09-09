@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+/// Boneyard starts with the full pack of tiles and gives out one or more tiles at a time.
 public class Boneyard {
     private final List<Tile> tiles;
     private final Random random;

@@ -3,6 +3,7 @@ package logic.elements;
 import java.util.ArrayList;
 import java.util.List;
 
+/// Table stores the tiles set be every player and calculates the table score.
 public class Table {
     private final List<Tile> tiles;
 
