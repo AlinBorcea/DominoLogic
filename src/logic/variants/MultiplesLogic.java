@@ -1,7 +1,7 @@
 package logic.variants;
 
 import logic.GameData;
-import logic.elements.SimpleTable;
+import logic.elements.SpinnerTable;
 import logic.strategies.SetTileStrategy;
 
 import java.util.List;
@@ -14,7 +14,7 @@ public class MultiplesLogic implements DominoLogic {
     private int failedTurns = 0;
 
     public MultiplesLogic(List<String> playerNames, SetTileStrategy setTileStrategy, int multiple) throws Exception {
-        this.gameData = new GameData(playerNames, setTileStrategy, new SimpleTable());
+        this.gameData = new GameData(playerNames, setTileStrategy, new SpinnerTable());
         this.multiple = multiple;
     }
 
