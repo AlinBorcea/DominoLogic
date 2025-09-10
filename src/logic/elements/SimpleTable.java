@@ -10,8 +10,8 @@ public class SimpleTable implements Table {
     private final List<Tile> tiles = new ArrayList<>();
 
     @Override
-    public void setTileUsingStrategy(List<Tile> playerTiles, SetTileStrategy strategy) throws Exception {
-        strategy.setTile(tiles, playerTiles);
+    public Tile setTileUsingStrategy(List<Tile> playerTiles, SetTileStrategy strategy) throws Exception {
+        return strategy.setTile(tiles, playerTiles);
     }
 
     public boolean tileCanBeSet(Tile tile) {
