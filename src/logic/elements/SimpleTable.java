@@ -1,5 +1,7 @@
 package logic.elements;
 
+import logic.strategies.SetTileStrategy;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,13 +9,13 @@ import java.util.List;
 public class SimpleTable implements Table {
     private final List<Tile> tiles;
 
-
     public SimpleTable() {
         this.tiles = new ArrayList<>();
     }
 
-    public List<Tile> getTiles() {
-        return tiles;
+    @Override
+    public void setTileUsingStrategy(List<Tile> playerTiles, SetTileStrategy strategy) throws Exception {
+        strategy.setTile(tiles, playerTiles);
     }
 
     public boolean tileCanBeSet(Tile tile) {

@@ -1,5 +1,7 @@
 package logic.elements;
 
+import logic.strategies.SetTileStrategy;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,11 @@ public class SpinnerTable implements Table {
     public SpinnerTable(SimpleTable simpleTable) {
         this.simpleTable = simpleTable;
         spinnerTiles = new ArrayList<>();
+    }
+
+    @Override
+    public void setTileUsingStrategy(List<Tile> playerTiles, SetTileStrategy strategy) throws Exception {
+        simpleTable.setTileUsingStrategy(playerTiles, strategy);
     }
 
     @Override
