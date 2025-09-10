@@ -2,6 +2,7 @@ import logic.variants.BlockLogic;
 import logic.variants.DominoLogic;
 import logic.exceptions.GameOverException;
 import logic.strategies.SetFirstTileStrategy;
+import logic.variants.MultiplesLogic;
 
 import java.util.Arrays;
 
@@ -10,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            dominoLogic = new BlockLogic(Arrays.asList("P1", "P2"), new SetFirstTileStrategy());
+            dominoLogic = new MultiplesLogic(Arrays.asList("P1", "P2"), new SetFirstTileStrategy(), 5);
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(1);
@@ -19,7 +20,7 @@ public class Main {
         }
 
         try {
-            dominoLogic.runMultipleTurns(40);
+            dominoLogic.runMultipleTurns(10);
         } catch (GameOverException e) {
             System.out.println("Game over!");
             dominoLogic.calculateEndGameScore();

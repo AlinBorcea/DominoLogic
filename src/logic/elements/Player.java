@@ -4,7 +4,6 @@ import logic.strategies.SetTileStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /// Player stores the tiles, name and score of a player.
 public class Player {
@@ -18,17 +17,8 @@ public class Player {
         score = 0;
     }
 
-    public void setOneTileOnTableUsingStrategy(Table table, SetTileStrategy strategy) throws Exception {
-        strategy.setTile(table.getTiles(), tiles);
-    }
-
-    public void setOneTileOnTableUsingStrategyAndSpinnerTable(Table table, SetTileStrategy strategy) throws Exception {
-        try {
-            strategy.setTile(table.getTiles(), tiles);
-        } catch (Exception e) {
-            var tile = strategy.setTile(table.getSpinnerTiles(), tiles);
-            table.setSpinnerTile(tile);
-        }
+    public List<Tile> getTiles() {
+        return tiles;
     }
 
     public void addTile(Tile tile) {

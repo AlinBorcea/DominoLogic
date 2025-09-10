@@ -1,7 +1,7 @@
 package logic.variants;
 
 import logic.GameData;
-import logic.elements.Table;
+import logic.elements.SimpleTable;
 import logic.exceptions.GameOverException;
 import logic.exceptions.PlayerCannotMakeAMoveException;
 import logic.exceptions.PlayerHasNoTilesException;
@@ -16,7 +16,7 @@ public class BlockLogic implements DominoLogic {
     private int failedTurns = 0;
 
     public BlockLogic(List<String> playerNames, SetTileStrategy setTileStrategy) throws Exception {
-        this.gameData = new GameData(playerNames, setTileStrategy, new Table());
+        this.gameData = new GameData(playerNames, setTileStrategy, new SimpleTable());
     }
 
     /// Runs one turn automatically and throws a GameOverException when the game is over.
