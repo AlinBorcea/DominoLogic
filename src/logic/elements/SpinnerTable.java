@@ -6,14 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpinnerTable implements Table {
-    private final SimpleTable simpleTable;
-    private final List<Tile> spinnerTiles;
+    private final SimpleTable simpleTable = new SimpleTable();
+    private final List<Tile> spinnerTiles = new ArrayList<>();
     private Tile spinnerTile;
-
-    public SpinnerTable(SimpleTable simpleTable) {
-        this.simpleTable = simpleTable;
-        spinnerTiles = new ArrayList<>();
-    }
 
     @Override
     public Tile setTileUsingStrategy(List<Tile> playerTiles, SetTileStrategy strategy) throws Exception {
