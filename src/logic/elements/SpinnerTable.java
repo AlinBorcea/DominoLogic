@@ -16,8 +16,23 @@ public class SpinnerTable implements Table {
     }
 
     @Override
-    public void setTileUsingStrategy(List<Tile> playerTiles, SetTileStrategy strategy) throws Exception {
-        simpleTable.setTileUsingStrategy(playerTiles, strategy);
+    public Tile setTileUsingStrategy(List<Tile> playerTiles, SetTileStrategy strategy) throws Exception {
+        Tile tileToBeSet = new Tile(-1, -1);
+
+        try {
+            tileToBeSet = simpleTable.setTileUsingStrategy(playerTiles, strategy);
+            if (tileToBeSet.isDouble() && spinnerTiles.isEmpty()) {
+                spinnerTiles.add(tileToBeSet);
+                spinnerTile = tileToBeSet;
+            }
+
+        } catch (Exception e) {
+            if (!spinnerTiles.isEmpty()) {
+                strategy.setTile(spinnerTiles, playerTiles);
+            }
+        }
+
+        return tileToBeSet;
     }
 
     @Override
