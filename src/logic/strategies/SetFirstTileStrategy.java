@@ -9,14 +9,15 @@ import java.util.List;
 /// SetFirstTileStrategy implements SetTileStrategy and sets the first valid tile on the table.
 public class SetFirstTileStrategy implements SetTileStrategy {
     @Override
-    public void setTile(List<Tile> tableTiles, List<Tile> playerTiles) throws Exception {
+    public Tile setTile(List<Tile> tableTiles, List<Tile> playerTiles) throws Exception {
         if (playerTiles.isEmpty())
             throw new PlayerHasNoTilesException("SetFirstTileStrategy: player has no tiles");
 
         if (tableTiles.isEmpty()) {
-            tableTiles.add(playerTiles.getFirst());
+            Tile first = playerTiles.getFirst();
+            tableTiles.add(first);
             playerTiles.removeFirst();
-            return;
+            return first;
         }
 
         var firstOnTable = tableTiles.getFirst();
@@ -27,19 +28,19 @@ public class SetFirstTileStrategy implements SetTileStrategy {
             if (tile.matchesToLeftOfOther(firstOnTable)) {
                 tableTiles.addFirst(tile);
                 playerTiles.remove(tile);
-                return;
+                return tile;
             } else if (tile.matchesToRightOfOther(lastOnTable)) {
                 tableTiles.addLast(tile);
                 playerTiles.remove(tile);
-                return;
+                return tile;
             } else if (reversed.matchesToLeftOfOther(firstOnTable)) {
                 tableTiles.addFirst(reversed);
                 playerTiles.remove(tile);
-                return;
+                return tile;
             } else if (reversed.matchesToRightOfOther(lastOnTable)) {
                 tableTiles.addLast(reversed);
                 playerTiles.remove(tile);
-                return;
+                return tile;
             }
         }
 

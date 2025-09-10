@@ -8,5 +8,5 @@ import java.util.List;
 /// Examples: SetFirstTile, setLastTile, setFirstScoringTile, setTileWithMostCommonFace.
 /// Can be used to extend functionality.
 public interface SetTileStrategy {
-    void setTile(List<Tile> tableTiles, List<Tile> playerTiles) throws Exception;
+    Tile setTile(List<Tile> tableTiles, List<Tile> playerTiles) throws Exception;
 }

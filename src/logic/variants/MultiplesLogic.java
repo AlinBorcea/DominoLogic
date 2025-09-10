@@ -21,9 +21,9 @@ public class MultiplesLogic implements DominoLogic {
     @Override
     public void runOneTurn() throws Exception {
         try {
-            gameData.runTurn();
+            gameData.runTurnWithSpinnerTable();
             failedTurns = 0;
-            gameData.updateCurrentPlayerScoreUsingTableAndMultiple(this.multiple);
+            gameData.updateCurrentPlayerScoreUsingTableAndMultipleWithSpinner(this.multiple);
             gameData.goToNextPlayer();
         } catch (Exception e) {
             gameData.goToNextPlayer();

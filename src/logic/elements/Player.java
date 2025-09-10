@@ -22,6 +22,15 @@ public class Player {
         strategy.setTile(table.getTiles(), tiles);
     }
 
+    public void setOneTileOnTableUsingStrategyAndSpinnerTable(Table table, SetTileStrategy strategy) throws Exception {
+        try {
+            strategy.setTile(table.getTiles(), tiles);
+        } catch (Exception e) {
+            var tile = strategy.setTile(table.getSpinnerTiles(), tiles);
+            table.setSpinnerTile(tile);
+        }
+    }
+
     public void addTile(Tile tile) {
         tiles.add(tile);
     }

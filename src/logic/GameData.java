@@ -35,6 +35,11 @@ public class GameData {
         if (players.getCurrent().hasNoTiles()) throw new GameOverException("Player has set all of their tiles");
     }
 
+    public void runTurnWithSpinnerTable() throws Exception {
+        players.getCurrent().setOneTileOnTableUsingStrategyAndSpinnerTable(table, setTileStrategy);
+        if (players.getCurrent().hasNoTiles()) throw new GameOverException("Player has set all of their tiles");
+    }
+
     public void giveCurrentPlayerTilesUntilValidOrEmpty() throws Exception {
         var player = players.getCurrent();
         Tile tile;
@@ -46,6 +51,19 @@ public class GameData {
         } while (!table.tileCanBeSet(tile));
 
         if (boneyard.isEmpty() && !table.tileCanBeSet(tile)) throw new PlayerCannotMakeAMoveException("No tile could be supplied");
+    }
+
+    public void giveCurrentPlayerTilesUntilValidOrEmptyWithSpinnerTable() throws Exception {
+        var player = players.getCurrent();
+        Tile tile;
+
+        do {
+            tile = boneyard.takeOneTile();
+            player.addTile(tile);
+
+        } while (!table.tileCanBeSetWithSpinner(tile));
+
+        if (boneyard.isEmpty() && !table.tileCanBeSetWithSpinner(tile)) throw new PlayerCannotMakeAMoveException("No tile could be supplied");
     }
 
     public void calculateEndGameScore() {
@@ -69,6 +87,14 @@ public class GameData {
 
     public void updateCurrentPlayerScoreUsingTableAndMultiple(int multiple) {
         int tableScore = table.getTableScore();
+
+        if (tableScore % multiple == 0) {
+            players.getCurrent().addScore(tableScore);
+        }
+    }
+
+    public void updateCurrentPlayerScoreUsingTableAndMultipleWithSpinner(int multiple) {
+        int tableScore = table.getTableScoreWithSpinner();
 
         if (tableScore % multiple == 0) {
             players.getCurrent().addScore(tableScore);
